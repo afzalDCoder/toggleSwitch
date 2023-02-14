@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --checkbox-width: 70px;
+  --checkbox-height: 35px;
+  --primary-bg-color: purple;
+  --secondary-bg-color: white;
+}
+html,
+body {
+  width: 100vw;
+  background-color: #f4f4f4;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.custom-checkbox {
+  /* It hides the default style of UI elements */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  width: var(--checkbox-width);
+  border-radius: 35px;
+  height: var(--checkbox-height);
+  background: var(--secondary-bg-color);
+  border: 1px solid var(--primary-bg-color);
+  transition: background 0.3s;
+  outline: none;
+  cursor: pointer;
+}
+.custom-checkbox::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: var(--primary-bg-color);
+  transition: 0.3s;
+}
+/* Change the color when input is checked using :checked pseudo class */
+.custom-checkbox:checked {
+  background-color: var(--primary-bg-color);
+}
+.custom-checkbox:checked::after {
+  background-color: var(--secondary-bg-color);
+  left: 70%;
+}
